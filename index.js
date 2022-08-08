@@ -10,7 +10,7 @@ const cors = require('cors')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //setting session maximum time after inactivity
-app.use(session({ secret: 'secret', cookie: { expires: 1200000 } }));
+app.use(session({ secret: 'secret', cookie: { expires: 1200000 }, resave: true, saveUninitialized: true}));
 app.use(cors());
 
 app.use('/users', usersRoutes);

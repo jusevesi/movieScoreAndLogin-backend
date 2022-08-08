@@ -45,7 +45,7 @@ const moviesController = {
                 const response = await executeQuery(`UPDATE movies SET name = '${name}', genre = '${genre}', score = '${score}', prizes= '${prizes}', year ='${year}', owner= '${owner}' WHERE idmovies = '${id}'`);
                 res.status(200).json({ message: 'Movie updated!' });
             } else {
-                res.status(404).json({ message: "You cant edit this movie because it is public or doesn't exist anymore" });
+                res.status(404).json({ message: "You cant edit this movie because it is public, doesn't exist anymore or belongs to someone else" });
             }
         } catch (error) {
             res.json(error);
