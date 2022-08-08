@@ -55,8 +55,7 @@ const moviesController = {
         try {
             const id = req.params.id;
             const response = await executeQuery(`DELETE FROM movies WHERE (idmovies = '${id}');`);
-
-            if (response.affectedRows >= 0) {
+            if (response.affectedRows > 0) {
                 res.status(200).json({ message: 'Movie deleted!' });
             } else {
                 res.status(404).json({ message: 'This movie doesnt exist anymore' });
