@@ -9,7 +9,7 @@ This repository contains the backend in node.js for movieScores.
 ```sh
 git clone https://github.com/jusevesi/movieScoreAndLogin-backend
 ```
-4. Install node modules
+4. Install dependencies
 ```sh
 npm install
 ```   
