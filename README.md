@@ -15,7 +15,7 @@ npm install
 ```   
 5. Import the following backup:
 ```sh
-https://github.com/jusevesi/movieScoreAndLogin-backend/db/moviescores.sql
+https://github.com/jusevesi/movieScoreAndLogin-backend/blob/main/db/moviescores.sql
 ```
 6. Replace the local credentials of your DB in the .env file
 ```
