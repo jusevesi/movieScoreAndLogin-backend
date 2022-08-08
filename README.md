@@ -4,7 +4,7 @@ This repository contains the backend in node.js for movieScores.
 
 ## Steps to execute the project
 1. Install node js
-2. Instalar Mysql Workbench o cualquier interfaz de Mysql 
+2. Install Mysql Workbench or any other Mysql interface 
 3. Clone the project
 ```sh
 git clone https://github.com/jusevesi/movieScoreAndLogin-backend
@@ -15,7 +15,7 @@ npm install
 ```   
 5. Import the following backup:
 ```sh
-https://github.com/jusevesi/prueba-bg-backend/blob/main/bd/backupPruebabg.sql
+https://github.com/jusevesi/movieScoreAndLogin-backend/db/moviescores.sql
 ```
 6. Replace the local credentials of your DB in the .env file
 ```
