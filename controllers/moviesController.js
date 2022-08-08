@@ -1,4 +1,4 @@
-const executeQuery = require("../services/mySql.service");
+const executeQuery = require("../services/mysql.service");
 
 const moviesController = {
 
