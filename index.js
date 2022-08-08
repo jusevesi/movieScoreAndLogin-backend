@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 const usersRoutes = require('./routes/usersRoutes.js');
 const moviesRoutes = require('./routes/moviesRoutes.js');
 const session = require('express-session');
