@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const executeQuery = require('../services/mySql.service');
+const executeQuery = require('../services/mysql.service');
 const bcrypt = require('bcryptjs');
 
 const usersController = {
