@@ -25,7 +25,7 @@ const moviesController = {
             const { name, genre, score, prizes, year, owner } = req.body;
             const movie = await executeQuery(`SELECT * FROM movies WHERE name = '${name}'`);
 
-            if (movie.length > 0 && owner === movie[0].owner) {
+            if (movie.length > 0 && req.session.idUser === +movie[0].owner) {
                 res.status(404).json({ message: "This movie already exists" });
             } else {
                 const response = await executeQuery(`INSERT INTO movies ( name, genre, score, prizes, year, owner ) VALUES ('${name}','${genre}','${score}','${prizes}','${year}','${owner}')`);
@@ -37,12 +37,12 @@ const moviesController = {
     },
     updateMovie: async (req, res) => {
         try {
-            const id = req.params.id;
+            const id = +req.params.id;
             const { name, genre, score, prizes, year, owner } = req.body;
             const movie = await executeQuery(`SELECT * FROM movies WHERE idmovies = '${id}'`);
 
-            if (movie.length > 0 && owner === movie[0].owner) {
-                const response = await executeQuery(`UPDATE movies SET name = '${name}', genre = '${genre}', score = '${score}', prizes= '${prizes}', year ='${year}', owner= '${owner}' WHERE idmovies = '${id}'`);
+            if (movie.length > 0 && req.session.idUser === +movie[0].owner) {
+                const response = await executeQuery(`UPDATE movies SET name = '${name}', genre = '${genre}', score = '${score}', prizes= '${prizes}', year ='${year}' WHERE idmovies = '${id}'`);
                 res.status(200).json({ message: 'Movie updated!' });
             } else {
                 res.status(404).json({ message: "You cant edit this movie because it is public, doesn't exist anymore or belongs to someone else" });
@@ -53,7 +53,7 @@ const moviesController = {
     },
     deleteMovie: async (req, res) => {
         try {
-            const id = req.params.id;
+            const id = +req.params.id;
             const response = await executeQuery(`DELETE FROM movies WHERE (idmovies = '${id}');`);
             if (response.affectedRows > 0) {
                 res.status(200).json({ message: 'Movie deleted!' });
